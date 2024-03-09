@@ -1,0 +1,343 @@
+:root {
+    --primary-light: rgb(138, 189, 255);
+    --primary: rgb(109, 93, 252);
+    --primary-dark: rgb(91, 14, 235);
+    --white: rgb(255, 255, 255);
+    --greyLight-1: rgb(228, 235, 245);
+    --greyLight-2: rgb(200, 208, 231);
+    --greyLight-3: rgb(190, 200, 228);
+    --greyDark: rgb(155, 170, 207);
+}
+
+body {
+    background: var(--greyLight-1);
+    margin: 0;
+    max-height: 100rem;
+    overflow: hidden;
+}
+
+.container {
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+}
+
+.clock {
+    width: 30rem;
+    height: 30rem;
+    box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2),
+        -0.2rem -0.2rem 0.5rem var(--white);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.clock .hand {
+    position: absolute;
+    transform-origin: bottom;
+    bottom: 15rem;
+    border-radius: 0.2rem;
+    z-index: 200;
+}
+
+.clock .hours {
+    width: 0.6rem;
+    height: 8.4rem;
+    background: var(--greyLight-3);
+}
+
+.clock .minutes {
+    width: 0.5rem;
+    height: 10.2rem;
+    background: var(--greyDark);
+}
+
+.clock .seconds {
+    width: 0.3rem;
+    height: 12.4rem;
+    background: var(--primary);
+}
+
+.clock .point {
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: var(--primary);
+    z-index: 300;
+}
+
+.clock .marker {
+    width: 95%;
+    height: 95%;
+    border-radius: 70%;
+    position: relative;
+    box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2),
+        inset -0.2rem -0.2rem 0.5rem var(--white);
+}
+
+.clock .marker::after {
+    content: "";
+    width: 60%;
+    height: 60%;
+    position: absolute;
+    box-shadow: inset 1px 1px 1px var(--greyLight-2),
+        inset -1px -1px 1px var(--white);
+    border-radius: 50%;
+    top: 20%;
+    left: 20%;
+    filter: blur(1px);
+}
+
+.clock .marker__1,
+.clock .marker__2,
+.clock .marker__3,
+.clock .marker__4 {
+    position: absolute;
+    border-radius: 0.1rem;
+    box-shadow: inset 1px 1px 1px var(--greyLight-2),
+        inset -1px -1px 1px var(--white);
+}
+
+.clock .marker__1,
+.clock .marker__2 {
+    width: 0.4rem;
+    height: 1.2rem;
+    left: 5.6rem;
+}
+
+.clock .marker__3,
+.clock .marker__4 {
+    width: 1.2rem;
+    height: 0.4rem;
+    top: 5.6rem;
+}
+
+.clock .marker__1 {
+    top: 1%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.clock .marker__2 {
+    bottom: 0px;
+    left: 50%;
+    transform: translateY(-50%);
+}
+
+.clock .marker__3 {
+    top: 50%;
+    left: 1%;
+    transform: translateY(-50%);
+}
+
+.clock .marker__4 {
+    top: 50%;
+    right: 1%;
+    transform: translateY(-50%);
+}
+
+.tasks {
+    position: absolute;
+    height: 100vh;
+    width: 17.6rem;
+    overflow: auto;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 1vh;
+}
+
+.chip {
+    grid-column: 2/3;
+    grid-row: 3/4;
+    justify-self: center;
+    width: 17rem;
+    height: 4rem;
+    border-radius: 1rem;
+    box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2),
+        -0.2rem -0.2rem 0.5rem var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.chip__icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1rem;
+    margin: 0 0 0 0.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    color: var(--primary);
+}
+
+.chip p {
+    font-size: 0.9rem;
+    margin-left: -1.8rem;
+    color: var(--greyDark);
+}
+
+.chip__close {
+    width: 1.6rem;
+    height: 1.6rem;
+    margin: 0 0.5rem;
+    display: flex;
+    font-size: 1.6rem;
+    color: var(--greyLight-3);
+    cursor: pointer;
+}
+
+.switch {
+    margin-left: 5px;
+    justify-self: center;
+}
+
+.switch input {
+    display: none;
+}
+
+.switch_ {
+    width: 6rem;
+}
+
+.switch_ label {
+    display: flex;
+    align-items: center;
+    width: 60%;
+    height: 2rem;
+    box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2),
+        -0.2rem -0.2rem 0.5rem var(--white);
+    background: rgba(255, 255, 255, 0);
+    position: relative;
+    cursor: pointer;
+    border-radius: 1.6rem;
+}
+
+.switch_ label::after {
+    content: "";
+    position: absolute;
+    left: 0.2rem;
+    width: 1.05rem;
+    height: 1.05rem;
+    border-radius: 50%;
+    background: var(--greyDark);
+    transition: all 0.4s ease;
+}
+
+.switch_ input:checked ~ label::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(
+        330deg,
+        var(--primary-dark) 0%,
+        var(--primary) 50%,
+        var(--primary-light) 100%
+    );
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.switch_ input:checked ~ label::before {
+    opacity: 1;
+}
+
+.switch_ input:checked ~ label::after {
+    left: 57%;
+    background: var(--greyLight-1);
+}
+
+.form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.form__input {
+    width: 20.4rem;
+    height: 4rem;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.4rem;
+    padding-left: 1.4rem;
+    box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyDark),
+        inset -0.2rem -0.2rem 0.5rem var(--white);
+    background-color: var(--greyLight-1);
+    font-family: inherit;
+    color: var(--greyDark);
+}
+
+.form__input::-moz-placeholder {
+    color: var(--greyLight-3);
+}
+
+.form__input:-ms-input-placeholder {
+    color: var(--greyLight-3);
+}
+
+.form__input::placeholder {
+    color: var(--greyDark);
+}
+
+.form__input:focus {
+    outline: none;
+    box-shadow: 0.3rem 0.3rem 0.6rem var(--greyDark),
+        -0.2rem -0.2rem 0.5rem var(--greyLight-3);
+}
+
+.Modal {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(155, 170, 207, 0.7);
+}
+
+.icon {
+    display: inline-block;
+}
+
+.icon__settings {
+    width: 3rem;
+    height: 3rem;
+    margin-left: 10px;
+    border-radius: 50%;
+    box-shadow: 0.3rem 0.3rem 0.6rem var(--greyDark),
+        -0.2rem -0.2rem 0.5rem var(--greyLight-3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--greyDark);
+    transition: all 0.5s ease;
+    background-color: var(--greyLight-1);
+}
+
+.icon__settings:active {
+    box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2),
+        inset -0.2rem -0.2rem 0.5rem var(--white);
+    color: var(--primary);
+}
+
+.icon__settings:hover {
+    color: var(--primary);
+}
